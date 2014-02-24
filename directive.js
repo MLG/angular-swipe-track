@@ -5,12 +5,16 @@ angular.module('mlgSwipeTrack', [])
     return {
       restrict: 'EAC',
       scope: {
-        barcodeSubmit: '&onScan'
+        barcodeSubmit: '&onScan',
+        model: '=?ngModel'
       },
       link: function postLink(scope) {
-        window.onScanAppBarCodeData = function (bar) {
-          if (!angular.isUndefined(bar) && angular.isFunction(scope.barcodeSubmit)) {
-            $timeout(function () {scope.barcodeSubmit({barcode: bar});}, 1);
+        window.onScanAppBarCodeData = function (barcode) {
+          if (!angular.isUndefined(barcode)) {
+            if (angular.isFunction(scope.barcodeSubmit)) {
+              $timeout(function () {scope.barcodeSubmit({barcode: barcode});}, 1);
+            }
+            $timeout(function () { scope.model = barcode }, 1);
             return true;
           }
           return false;
@@ -18,4 +22,3 @@ angular.module('mlgSwipeTrack', [])
       }
     };
   });
-
