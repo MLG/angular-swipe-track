@@ -1,6 +1,6 @@
 {
   "name": "angular-swipe-track",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/MLG/angular-swipe-track",
   "authors": [
     "Eugene OZ <normandiggs@gmail.com>"
@@ -12,7 +12,7 @@
     "lineapro"
   ],
   "license": "no",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
